@@ -1,13 +1,3 @@
-import { createServer } from "http";
-import { Server } from "socket.io";
-
-const httpServer = createServer();
-const io = new Server(httpServer, {
-  cors: {
-    origin: "92.232.75.235:80"
-  }
-});
-
 let chat = document.getElementById('chat');
 let inp_message = document.getElementById('inp_message');
 let send = document.getElementById('send');
@@ -15,7 +5,7 @@ let username = document.getElementById('username');
 let btn_connect = document.getElementById('connect');
 let btn_disconnect = document.getElementById('disconnect');
 var user = username.value;
-let socket = io("92.232.75.235:80", {autoConnect: false});
+let socket = io("http://92.232.75.235:5000", {autoConnect: false});
 btn_connect.onclick = function(){
   if(username.value != ""){
     socket.connect();
